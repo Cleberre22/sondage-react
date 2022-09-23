@@ -75,7 +75,48 @@ export default function ShowPoll() {
             <Typography sx={{ mt: 0 }} component="h1" variant="h4">
               Fiche du sondage
             </Typography>
+            <Box className="boxPoll">
            <p>{nameSondage}</p>
+
+
+
+{/* 
+           <Box component="form" onSubmit={AddPoll} noValidate sx={{ mt: 3 }}>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="email"
+                label="Nom de la question"
+                name="nameSondage"
+                autoComplete="email"
+                autoFocus
+                type="text"
+                value={nameSondage}
+                onChange={(event) => {
+                  setNameSondage(event.target.value);
+                }}
+              />
+
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 2, mb: 2 }}
+              >
+                Ajouter
+              </Button>
+            </Box> */}
+
+
+
+
+
+
+
+
+
+           </Box>
           </Box>
         </Container>
       </ThemeProvider>
