@@ -40,7 +40,7 @@ const ResponsiveAppBar = () => {
   };
 
   const token = localStorage.getItem("access_token");
-  console.log(token);
+  // console.log(token);
   const userLogged = !token;
 
   const [user, setUser] = useState([]);
@@ -58,7 +58,7 @@ const ResponsiveAppBar = () => {
       // console.log(res.data.role);
     });
   };
-  console.log(role);
+  // console.log(role);
 
   const removeToken = () => {
     localStorage.removeItem("access_token");
@@ -164,6 +164,16 @@ const ResponsiveAppBar = () => {
                 </Typography>
               </MenuItem>
               {/* ))} */}
+
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Typography
+                  textAlign="center"
+                  component="a"
+                  href="/strowpoll/pollForm"
+                >
+                  Sondage
+                </Typography>
+              </MenuItem>
             </Menu>
           </Box>
 
@@ -232,6 +242,15 @@ const ResponsiveAppBar = () => {
                 déconnection
               </Button>
             )}
+             <Button
+                // key={page}
+                component="a"
+                href="/strowpoll/pollForm"
+                onClick={removeToken}
+                sx={{ my: 2, color: "white", display: "block" }}
+              >
+                sondage
+              </Button>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -280,6 +299,15 @@ const ResponsiveAppBar = () => {
                 </MenuItem>
               )}
               {/* ))} */}
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Typography
+                  textAlign="center"
+                  component="a"
+                  href="/strowpoll/pollForm"
+                >
+                  Sondage
+                </Typography>
+              </MenuItem>
             </Menu>
           </Box>
         </Toolbar>

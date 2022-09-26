@@ -18,13 +18,17 @@ const theme = createTheme();
 
 export default function ShowPoll() {
     const { poll } = useParams();
+    // const { question } = useParams();
     const navigate = useNavigate();
   
     const [nameSondage, setNameSondage] = useState("");
+    const [nameQuestion, setNameQuestion] = useState();
+    const [questions, setQuestions] = useState([]);
     // const [validationError, setValidationError] = useState({});
   
     useEffect(() => {
       getPoll();
+      displayQuestionPoll();
     }, []);
   
     // GET - Récupère les valeurs de la fiche avec l'API
@@ -33,10 +37,18 @@ export default function ShowPoll() {
         .get(`http://localhost:8000/api/polls/${poll}`)
         .then((res) => {
           setNameSondage(res.data.nameSondage);
+          console.log(res.data.nameSondage);
         })
         .catch((error) => {
           console.log(error);
         });
+    };
+    
+    const displayQuestionPoll = async () => {
+      await axios.get(`http://localhost:8000/api/question-poll/${poll}`).then((res) => {
+        setNameQuestion(res.data);
+        console.log(res.data);
+      });
     };
 
   return (
@@ -55,19 +67,7 @@ export default function ShowPoll() {
               alignItems: "center",
             }}
           >
-            {/* {Object.keys(validationError).length > 0 && (
-              <div className="row">
-                <div className="col-12">
-                  <div className="alert alert-danger">
-                    <ul className="mb-0">
-                      {Object.entries(validationError).map(([key, value]) => (
-                        <li key={key}>{value}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            )} */}
+
 
             <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
               <PollIcon />
@@ -75,46 +75,23 @@ export default function ShowPoll() {
             <Typography sx={{ mt: 0 }} component="h1" variant="h4">
               Fiche du sondage
             </Typography>
-            <Box className="boxPoll">
+            <Box className="boxPoll" sx={{ p: 5 }}>
            <p>{nameSondage}</p>
+           {/* <p>{nameQuestion}</p> */}
 
 
-
-{/* 
-           <Box component="form" onSubmit={AddPoll} noValidate sx={{ mt: 3 }}>
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Nom de la question"
-                name="nameSondage"
-                autoComplete="email"
-                autoFocus
-                type="text"
-                value={nameSondage}
-                onChange={(event) => {
-                  setNameSondage(event.target.value);
-                }}
-              />
-
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 2, mb: 2 }}
-              >
-                Ajouter
-              </Button>
-            </Box> */}
-
-
-
-
-
-
-
-
+           
+           {nameQuestion.map((nameQuestion) => ( 
+     
+            <Box  sx={{
+              margin: 3,
+              display: "flex",
+              justifyContent: "center",
+            }}>
+            {nameQuestion.nameQuestion}
+            </Box>
+            
+            ))}
 
            </Box>
           </Box>
