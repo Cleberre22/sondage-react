@@ -47,17 +47,18 @@ const ResponsiveAppBar = () => {
   const [role, setRole] = useState([]);
 
   useEffect(() => {
-    displayUsers();
+    // displayUsers();
   }, []); // Sans les crochets ça tourne en boucle
-  const displayUsers = async () => {
-    await axios.get("http://localhost:8000/api/current-user",{
-      "headers" : { "Authorization":"Bearer"+localStorage.getItem('access_token') }
-      }).then((res) => {
-      setUser(res.data);
-      setRole(res.data.role);
-      // console.log(res.data.role);
-    });
-  };
+
+  // const displayUsers = async () => {
+  //   await axios.get("http://localhost:8000/api/current-user",{
+  //     "headers" : { "Authorization":"Bearer"+localStorage.getItem('access_token') }
+  //     }).then((res) => {
+  //     setUser(res.data);
+  //     setRole(res.data.role);
+  //     // console.log(res.data.role);
+  //   });
+  // };
   // console.log(role);
 
   const removeToken = () => {
@@ -142,7 +143,6 @@ const ResponsiveAppBar = () => {
                 </Typography>
               </MenuItem>
               )}
-             
 
               {userLogged ? (
                 <MenuItem onClick={handleCloseNavMenu}>

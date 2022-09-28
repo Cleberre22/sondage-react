@@ -23,7 +23,7 @@ import EditAnswer from "./pages/dashboard/answers/EditAnswer";
 
 function App() {
 
-  const token = localStorage.getItem("access_token");
+  // const token = localStorage.getItem("access_token");
 
   return (
     <BrowserRouter>
@@ -32,8 +32,8 @@ function App() {
         <Route path="*" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        {/* <Route path="/dashboard/index" element={<Index />} /> */}
-        <Route path="/dashboard/index" element={token ? <Index/> : <Login/> }></Route>
+        <Route path="/dashboard/index" element={<Index />} />
+        {/* <Route path="/dashboard/index" element={token ? <Index/> : <Login/> }></Route> */}
 
         <Route path="/dashboard/polls/" element={<Polls />} />
         <Route path="/dashboard/polls/add" element={<AddPoll />} />

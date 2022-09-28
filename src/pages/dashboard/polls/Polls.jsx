@@ -23,8 +23,8 @@ import Stack from "@mui/material/Stack";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import AddIcon from '@mui/icons-material/Add';
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import AddIcon from "@mui/icons-material/Add";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const theme = createTheme();
@@ -50,7 +50,6 @@ export default function IndexPoll() {
   return (
     <div>
       <MenuHeader />
-
       <ThemeProvider theme={theme}>
         <Container component="main" maxWidth="xs">
           <CssBaseline />
@@ -70,18 +69,13 @@ export default function IndexPoll() {
               Liste des sondages
             </Typography>
             <Box sx={{ mt: 1 }}>
-
-
-
-
-
-
-            <Button sx={{ mt: 5 }} variant="contained" href="/dashboard/polls/add">
-  Créer sondage
-</Button>
-
-
-
+              <Button
+                sx={{ mt: 5 }}
+                variant="contained"
+                href="/dashboard/polls/add"
+              >
+                Créer sondage
+              </Button>
               <TableContainer component={Paper} sx={{ mt: 2 }}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                   <TableHead>
@@ -104,8 +98,7 @@ export default function IndexPoll() {
                         </TableCell>
                         <TableCell align="center">{poll.nameSondage}</TableCell>
                         <TableCell align="center">
-
-                        <IconButton
+                          <IconButton
                             color="success"
                             aria-label="show"
                             size="large"
